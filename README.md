@@ -72,7 +72,9 @@ We also provide [the wavelet docker image](https://hub.docker.com/r/haochern/qcd
 - `./data/Tq_initial_coeff.txt`are the wavelet coefficients for quark track function:
   $$c^q_{m,\ell}=\int_{0}^{1}\psi_{m,\ell}(x) T_q(x) dx .$$
   The ordering of the coefficients in the file `./data/Tq_initial_coeff.txt` is as follows
-  $$ c^q_{1,0},c^q _{2,0},\dots, c^q_{16,0}, c^q_{1,1},c^q _{2,1},\dots, c^q_{16,1},  c^q_{1,2},c^q _{2,2},\dots, c^q_{16,2}.$$
+  
+  $$c^q_{1,0},c^q_{2,0},\dots, c^q_{16,0}, c^q_{1,1},c^q_{2,1},\dots, c^q_{16,1},  c^q_{1,2},c^q_{2,2},\dots, c^q_{16,2}.$$
+  
   The same applies to the gluon case. An example of generating the wavelet coefficient lists from given functions is shown in the Mathematica notebook `intitial_coefficients_generation_example.nb`.
 
 ##### Solving the differential equations
@@ -95,9 +97,12 @@ We also provide [the wavelet docker image](https://hub.docker.com/r/haochern/qcd
 
 ##### Plot the results
 The wavelet docker image outputs are `data/output/NLO_wavelet_coeff_mu_xxx.txt`, which stores the quark and gluon wavelet coefficients at energy scale `xxx`. The first 48 real numbers are the quark track function wavelet coefficients
-$$ c^q_{1,0},c^q _{2,0},\dots, c^q_{16,0}, c^q_{1,1},c^q _{2,1},\dots, c^q_{16,1},  c^q_{1,2},c^q _{2,2},\dots, c^q_{16,2},$$
+
+$$c^q_{1,0},c^q_{2,0},\dots, c^q_{16,0}, c^q_{1,1},c^q_{2,1},\dots, c^q_{16,1},  c^q_{1,2},c^q_{2,2},\dots, c^q_{16,2},$$
+
 while the rest 48 real numbers correspond to the gluon wavelet coefficients
-$$ c^g_{1,0},c^g _{2,0},\dots, c^g_{16,0}, c^g_{1,1},c^g _{2,1},\dots, c^g_{16,1},  c^g_{1,2},c^g _{2,2},\dots, c^g_{16,2}.$$
+
+$$c^g_{1,0},c^g_{2,0},\dots, c^g_{16,0}, c^g_{1,1},c^g_{2,1},\dots, c^g_{16,1},  c^g_{1,2},c^g_{2,2},\dots, c^g_{16,2}.$$
 
 The track functions $T_{i=q/g}$ can be obtained from
 $$T_{i}(x) = \sum_{m=1}^{16} \sum_{\ell=0}^{2} c^i_{m,\ell} \psi_{m,\ell}(x).$$
