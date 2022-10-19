@@ -54,12 +54,12 @@ For easier use, we create [a docker image](https://hub.docker.com/r/haochern/qcd
 The Fourier docker image offers two kinds of outputs -- both the Fourier coefficients results and discretized curves. The Mathematica notebook `plot.nb` is an example to manipulate the output data.
 
 In the folder `data/output/`, `Tq_value_mu_xxx.txt` and `Tg_value_mu_xxx.txt`are the values of track functions evaluated at the discretized points given in `x_axis.txt` and energy scale `xxx`.
- `NLO_fouier_coeff_mu_xxx.txt` is the Fourier coefficients output at energy scale `xxx`, where the first 100 complex numbers $\{b^q_1, \dots, b^q_{100}\}$ are the quark track function Fourier coefficients and the next 100 complex numbers $\{b^g_1, \dots, b^g_{100}\}$ are the gluon case. To revover the x-space track functions $T_{i=q,g}(x)$, we can simply use
+ `NLO_fouier_coeff_mu_xxx.txt` is the Fourier coefficients output at energy scale `xxx`, where the first 100 complex numbers $\{b^q_1, \dots, b^q_{100}\}$ are the quark track function Fourier coefficients and the next 100 complex numbers $\{b^g_1, \dots, b^g_{100}\}$ are the gluon case. To recover the x-space track functions $T_{i=q,g}(x)$, we can simply use
  $$T_i(x) = 1 + 2\mathrm{Re}\sum_{i=1}^{100} b^i_n e^{2\pi i n x} .$$
    
 
 ## Legendre Wavelet
-Our wavelet method approximates the track functions with piecewise polynomials. Specifically, we divide the range $(0,1)$ into 16 intervals, on each of which we use the quadratic polynomial approximation. This corresponds to set parameters $K=5$ and $M=2$ in Sec. 7.1.2 in the Ref. [2]. The numerical kernels can be found on [the same Zenodo website](https://zenodo.org/record/7219729#.Y063VOxBz-Q) as that for the Fourier method.
+Our wavelet method approximates the track functions with piecewise polynomials. Specifically, we divide the range $(0,1)$ into 16 intervals, on each of which we use the quadratic polynomial approximation. This corresponds to set parameters $K=5$ and $L=3$ in Sec. 7.1.2 in the Ref. [2]. The Legendre wavelet basis function $\psi_{m,\ell}(x)$ is defined in the eq.(7.6) where $1\leq m\leq 2^{K-1}$ and $0\leq\ell\leq L-1$. The corresponding numerical kernels can be found on [the same Zenodo website](https://zenodo.org/record/7219729#.Y063VOxBz-Q) as that for the Fourier method.
 
 We also provide [the wavelet docker image](https://hub.docker.com/r/haochern/qcd-track-evolution-wavelet) which should be used with the folder `Wavelet/NLO_evolution_wavelet`. Therefore, we assume `./` = `Wavelet/NLO_evolution_wavelet/` in this part. Its usage is similar to the Fourier docker image.
 
@@ -69,7 +69,10 @@ We also provide [the wavelet docker image](https://hub.docker.com/r/haochern/qcd
 
 - In the `./data/target_scales.txt`, we can input any reasonable number of wanted energy scales to see the evolution results. 
 
-- `./data/Tq_initial_coeff.txt`are the wavelet coefficients for quark track function.
+- `./data/Tq_initial_coeff.txt`are the wavelet coefficients for quark track function:
+  $$c^q_{m,\ell}=\int_{0}^{1}\psi_{m,\ell}(x) T_q(x) dx .$$
+  The ordering of the coefficients in the file `./data/Tq_initial_coeff.txt` is as follows
+  $$ c^q_{1,0},c^q _{2,0},\dots, c^q_{16,0}, c^q_{1,1},c^q _{2,1},\dots, c^q_{16,1},  c^q_{1,2},c^q _{2,2},\dots, c^q_{16,2}.$$
   The same applies to the gluon case. An example of generating the wavelet coefficient lists from given functions is shown in the Mathematica notebook `intitial_coefficients_generation_example.nb`.
 
 ##### Solving the differential equations
@@ -91,7 +94,15 @@ We also provide [the wavelet docker image](https://hub.docker.com/r/haochern/qcd
    ```./run.sh``` in the direcory `Wavelet/NLO_evolution_wavelet/`.
 
 ##### Plot the results
-The wavelet docker image outputs are `data/output/NLO_wavelet_coeff_mu_xxx.txt`, which stores the quark and gluon wavelet coefficients at energy scale `xxx`. An example of plotting the track functions with wavelet coefficients is given in the Mathematica notebook `plot.nb`.
+The wavelet docker image outputs are `data/output/NLO_wavelet_coeff_mu_xxx.txt`, which stores the quark and gluon wavelet coefficients at energy scale `xxx`. The first 48 real numbers are the quark track function wavelet coefficients
+$$ c^q_{1,0},c^q _{2,0},\dots, c^q_{16,0}, c^q_{1,1},c^q _{2,1},\dots, c^q_{16,1},  c^q_{1,2},c^q _{2,2},\dots, c^q_{16,2},$$
+while the rest 48 real numbers correspond to the gluon wavelet coefficients
+$$ c^g_{1,0},c^g _{2,0},\dots, c^g_{16,0}, c^g_{1,1},c^g _{2,1},\dots, c^g_{16,1},  c^g_{1,2},c^g _{2,2},\dots, c^g_{16,2}.$$
+
+The track functions $T_{i=q/g}$ can be obtained from
+$$T_{i}(x) = \sum_{m=1}^{16} \sum_{\ell=0}^{2} c^i_{m,\ell} \psi_{m,\ell}(x).$$
+
+An example of plotting the track functions with wavelet coefficients is given in the Mathematica notebook `plot.nb`.
 
 
 #### References
