@@ -93,6 +93,7 @@ We also provide [the wavelet docker image](https://hub.docker.com/r/haochern/qcd
 ##### Plot the results
 The wavelet docker image outputs are `data/output/NLO_wavelet_coeff_mu_xxx.txt`, which stores the quark and gluon wavelet coefficients at energy scale `xxx`. An example of plotting the track functions with wavelet coefficients is given in the Mathematica notebook `plot.nb`.
 
+
 #### References
 
 [1]  H. Chen, M. Jaarsma, Y. Li, I. Moult, W. Waalewijn, H. X. Zhu, _Collinear Parton Dynamics Beyond DGLAP_, 2210.xxxxx.
