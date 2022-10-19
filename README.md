@@ -29,7 +29,7 @@ For easier use, we create [a docker image](https://hub.docker.com/r/haochern/qcd
 - In the `./data/target_scales.txt`, we can input any reasonable number of wanted energy scales to see the evolution results. 
 
 - `./data/Tq_initial_coeff_re.txt` and `./data/Tq_initial_coeff_im.txt` are the real and imaginary part of quark track function Fourier coefficients lists 
-  $$b^q_n=\int_{0}^{1} e^{-2\pi i n x} T_q(x)dx,\; n=1,2,\dots,100\,.$$
+  $$b^q_n=\int_{0}^{1} e^{-2\pi i n x} T_q(x)dx, n=1,2,\dots,100.$$
   The same applies to the gluon case.
 
 ##### Solving the differential equations
@@ -55,7 +55,7 @@ The Fourier docker image offers two kinds of outputs -- both the Fourier coeffic
 
 In the folder `data/output/`, `Tq_value_mu_xxx.txt` and `Tg_value_mu_xxx.txt`are the values of track functions evaluated at the discretized points given in `x_axis.txt` and energy scale `xxx`.
  `NLO_fouier_coeff_mu_xxx.txt` is the Fourier coefficients output at energy scale `xxx`, where the first 100 complex numbers $\{b^q_1, \dots, b^q_{100}\}$ are the quark track function Fourier coefficients and the next 100 complex numbers $\{b^g_1, \dots, b^g_{100}\}$ are the gluon case. To revover the x-space track functions $T_{i=q,g}(x)$, we can simply use
- $$T_i(x) = 1 + 2\,\mathrm{Re}\sum_{i=1}^{100} b^i_n e^{2\pi i n x}\,.$$
+ $$T_i(x) = 1 + 2\mathrm{Re}\sum_{i=1}^{100} b^i_n e^{2\pi i n x} .$$
    
 
 ## Legendre Wavelet
