@@ -8,11 +8,11 @@ Moment method solves the track evolution equation in moment space first and then
 
 
 
-The moment method evolution is written in the Wolfram language. The LO and NLO evolution in moments are accessible with the functions`evoLO` and `evoNLO` in the notebook `4QCD_solv_RGEs_RK.nb`, which use Runge-Kutta fourth-order method to solve the differential equation. More usage details are explained in the notebook.
+The moment method evolution is written in the Wolfram language. The LO and NLO evolution in moments are accessible with the functions`evoLO` and `evoNLO` in the notebook `Moments/4QCD_solv_RGEs_RK.nb`, which use Runge-Kutta fourth-order method to solve the differential equation. More usage details are explained in the notebook.
 
 
 
-We provide at most 28 moments approximation and the corresponding analytic expression for the kernels are given in the directory `EvolutionEquations4Moments`.
+We provide at most 28 moments approximation and the corresponding analytic expression for the kernels are given in the directory `Moments/EvolutionEquations4Moments`.
 
 ## Fourier Series
 
