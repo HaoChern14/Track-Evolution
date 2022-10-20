@@ -112,8 +112,8 @@ An example of plotting the track functions with wavelet coefficients is given in
 
 #### References
 
-[1]  H. Chen, M. Jaarsma, Y. Li, I. Moult, W. Waalewijn, H. X. Zhu, _Collinear Parton Dynamics Beyond DGLAP_, 2210.xxxxx.
+[1]  H. Chen, M. Jaarsma, Y. Li, I. Moult, W. Waalewijn, H. X. Zhu, _Collinear Parton Dynamics Beyond DGLAP_, [[2210.10061]](https://arxiv.org/abs/2210.10061).
 
-[2]  H. Chen, M. Jaarsma, Y. Li, I. Moult, W. Waalewijn, H. X. Zhu, _Multi-Collinear Splitting Kernels for Track Function Evolution_, 2210.xxxxx.
+[2]  H. Chen, M. Jaarsma, Y. Li, I. Moult, W. Waalewijn, H. X. Zhu, _Multi-Collinear Splitting Kernels for Track Function Evolution_, [[2210.10058]](https://arxiv.org/abs/2210.10058).
 
 [3]  H.-M. Chang, M. Procura, J. Thaler, and W. J. Waalewijn, _Calculating track thrust with track functions_, [Phys. Rev. D 88, 034030](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.88.034030), [[1303.6637]](https://arxiv.org/abs/1303.6637).
